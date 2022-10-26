@@ -6,7 +6,7 @@ W = canvas.width = innerWidth;
 
 const bgc = "darkturquoise"
 
-const data = [
+let data = [
 	["a", 100],
   ["b", 100],
   ["c", 100],
@@ -23,14 +23,8 @@ const colors = {
   5: "#688E26"
 }
 
-let total = 0;
-data.map((x,i) => {
-  total += x[1]
-  const color = colors[i] ? 
-    colors[i]: `hsl(${Math.floor(Math.random()*360)}, 100%, 50%)`
-  x.push(color);
-  return x
-})
+let total;
+setupData()
 
 const r = 200
 const margin = 10
@@ -106,4 +100,31 @@ function doughnut() {
   ctx.fill()
   ctx.closePath()
   ctx.restore()
+}
+
+function setupData() {
+  total = 0;
+  data.map((x,i) => {
+    total += x[1]
+    const color = colors[i] ? 
+      colors[i]: `hsl(${Math.floor(Math.random()*360)}, 100%, 50%)`
+    x.push(color);
+    return x
+  })
+}
+
+
+let button = document.getElementsByTagName("button")[0]
+button.onclick = () => {
+  const texts = document.querySelectorAll("input[type='text']")
+  const numbers = document.querySelectorAll("input[type='number']")
+  const res = []
+
+  for (let i = 0; i < texts.length; i++) {
+    res.push([texts[i].value, Number(numbers[i].value)])
+  }
+
+  data = res
+  setupData()
+  curr = 0
 }

@@ -1,0 +1,204 @@
+.field{
+  --fieldBorderColor: #D1C4E9;
+  --fieldBorderColorActive: #673AB7;
+}
+
+.field__input{ 
+  --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, rgb(231, 231, 231));
+  
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+  
+  
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.field__input:focus::-webkit-input-placeholder{
+  color: var(--uiFieldPlaceholderColor);
+}
+
+.field__input:focus::-moz-placeholder{
+  color: var(--uiFieldPlaceholderColor);
+}
+
+/*
+=====
+CORE STYLES
+=====
+*/
+
+.field{
+  --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+  --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
+  --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);   
+  --uiFieldBorderColorActive: var(--fieldBorderColorActive, rgba(22, 22, 22, 1));
+  
+  display: var(--fieldDisplay, inline-flex);
+  position: relative;
+  font-size: var(--fieldFontSize, 1rem);
+  margin: 10px;
+}
+
+.field__input{
+  color: aliceblue;
+  box-sizing: border-box;
+  width: var(--fieldWidth, 100%);
+  height: var(--fieldHeight, 3rem);
+  padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight) var(--fieldPaddingBottom, .5rem) var(--uiFieldPaddingLeft);
+  border-bottom: var(--uiFieldBorderWidth) solid var(--fieldBorderColor, rgba(0, 0, 0, .25));  
+}
+
+.field__input:focus{
+  outline: none;
+}
+
+.field__input::-webkit-input-placeholder{
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.field__input::-moz-placeholder{
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.field__input:focus::-webkit-input-placeholder{
+  opacity: 1;
+  transition-delay: .2s;
+}
+
+.field__input:focus::-moz-placeholder{
+  opacity: 1;
+  transition-delay: .2s;
+}
+
+.field__label-wrap{
+  box-sizing: border-box;
+  pointer-events: none;
+  cursor: text;
+  
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.field__label-wrap::after{
+  content: "";
+  box-sizing: border-box;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.field__input:focus ~ .field__label-wrap::after{
+  opacity: 1;
+}
+
+.field__label {
+  position: absolute;
+  left: var(--uiFieldPaddingLeft);
+  top: calc(50% - .5em);
+  
+  line-height: 1;
+  font-size: var(--fieldHintFontSize, inherit);
+  
+  transition: top .2s cubic-bezier(0.9, -0.15, 0.1, 1.15), opacity .2s ease-out, font-size .2s ease-out;
+
+  color:aliceblue;
+}
+
+.field__input:focus ~ .field__label-wrap .field__label,
+.field__input:not(:placeholder-shown) ~ .field__label-wrap .field__label{
+  --fieldHintFontSize: var(--fieldHintFontSizeFocused, .75rem);
+  
+  top: var(--fieldHintTopHover, .25rem);
+}
+
+.field_v1 .field__label-wrap::after{
+  border: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+  transition: height .2s ease-out, opacity .2s ease-out;
+}
+
+.field_v1 .field__input:focus ~ .field__label-wrap::after{
+  height: 100%;
+}
+
+
+
+
+
+body {
+  background-color: darkturquoise;
+}
+
+button {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-decoration: none;
+  transition: color 100ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  top: 0%;
+  right: 0%;
+}
+
+form > * {
+  position: relative;
+}
+
+form {
+  display: flex;
+  right: 0%;
+  position: absolute;
+  flex-direction: column;
+  background-color: #15172b;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+input {
+  /*for absolutely positioning spinners*/
+  position: relative; 
+  padding: 5px;
+  padding-right: 25px;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+input::-webkit-outer-spin-button, 
+input::-webkit-inner-spin-button {
+  -webkit-appearance: inner-spin-button !important;
+  width: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
