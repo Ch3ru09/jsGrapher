@@ -1,0 +1,24 @@
+svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#removal {
+    position: absolute;
+    y:-100;
+    animation: a 1000ms forwards ease;
+    animation-delay: calc(var(--order) *200ms);
+
+}
+
+@keyframes a {
+    0% {
+        y:-100
+    }
+
+    100% {
+        y: 14
+    }
+}
