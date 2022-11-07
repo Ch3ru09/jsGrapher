@@ -4,13 +4,17 @@
 <body>
   
   <div>
-    <form id="main" action="">
-      <button type="button">submit</button>
+    <form id="main" method="get">
+      <div class="container">
+        <input type="button" id="submit" value="submit"></input>
+        <input type="button" id="add" value="add row">
+        <input type="button" id="remove" value="remove row">
+      </div>
     </form>
-    
   </div>
-
   <canvas id="graph"></canvas>
+  <textarea></textarea>
+
   <script src="init.js"></script>
   <script src="main.js"></script>
 </body>

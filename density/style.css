@@ -5,20 +5,19 @@ svg {
     transform: translate(-50%, -50%);
 }
 
-#removal {
+#people rect {
     position: absolute;
-    y:-100;
-    animation: a 1000ms forwards ease;
-    animation-delay: calc(var(--order) *200ms);
-
+    transform: translateY(-100%);
+    animation: people 1000ms ease forwards;
+    animation-delay: calc(var(--order)*200ms);
 }
 
-@keyframes a {
+@keyframes people {
     0% {
-        y:-100
+       transform: translateY(-100%);
     }
 
     100% {
-        y: 14
+       transform: translateY(0%);
     }
 }

@@ -136,11 +136,11 @@ CORE STYLES
 
 
 body {
-  background-color: darkturquoise;
+  background-color: #fff;
 }
 
-button {
-  background-color: #EA4C89;
+input[type="button"] {
+  background-color: cornflowerblue;
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
@@ -148,12 +148,12 @@ button {
   cursor: pointer;
   display: inline-block;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 500;
   height: 40px;
   line-height: 20px;
   list-style: none;
-  margin: 0;
+  margin: 10px;
   outline: none;
   padding: 10px 16px;
   position: relative;
@@ -164,6 +164,23 @@ button {
   touch-action: manipulation;
   top: 0%;
   right: 0%;
+
+  width:25%;
+
+  transition: ease 250ms;
+}
+
+input[type="button"]:hover {
+  transform: translateY(-5%);
+  box-shadow: #15172b 0px 3px 5px;
+  transition: ease 250ms;
+}
+
+.container {
+  padding: 5px;
+  background-color: #D1C4E9;
+  border-radius: 10px;
+  text-align: center;
 }
 
 form > * {
@@ -181,24 +198,45 @@ form {
   padding: 20px;
 }
 
-input {
+input[type="color"] {
   /*for absolutely positioning spinners*/
   position: relative; 
   padding: 5px;
   padding-right: 25px;
 }
 
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
+input[type="color"]::-webkit-inner-spin-button,
+input[type="color"]::-webkit-outer-spin-button {
   opacity: 1;
 }
 
-input::-webkit-outer-spin-button, 
-input::-webkit-inner-spin-button {
+input[type="color"]::-webkit-outer-spin-button, 
+input[type="color"]::-webkit-inner-spin-button {
   -webkit-appearance: inner-spin-button !important;
   width: 25px;
   position: absolute;
   top: 0;
   right: 0;
   height: 100%;
+}
+
+
+
+.color_picker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100px !important;
+  height: 50px !important;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.color_picker::-webkit-color-swatch {
+  border-radius: 15px;
+  border: 5px solid var(--fieldBorderColor);
+}
+.color_picker::-moz-color-swatch {
+  border-radius: 15px;
+  border: 10px solid var(--fieldBorderColor);
 }
